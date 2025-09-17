@@ -1,0 +1,42 @@
+# Core dependencies for Fashion Shopping Assistant
+# Updated for Python 3.13 compatibility
+
+# Web framework
+streamlit==1.49.0
+
+# Data processing
+pandas==2.2.3
+numpy==2.0.2
+
+# Image processing
+pillow==10.4.0
+opencv-python==4.10.0.84
+
+# Machine Learning
+scikit-learn==1.5.1
+scipy==1.14.1
+
+# Deep Learning
+torch==2.6.0
+torchvision==0.21.0
+torchaudio==2.6.0
+
+# Similarity search
+faiss-cpu==1.12.0
+
+# Visualization
+plotly==5.24.1
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Utilities
+tqdm==4.67.1
+requests==2.32.3
+python-dotenv==1.0.1
+
+# Optional: For Kaggle dataset download
+kaggle==1.6.17
+
+# For Jupyter notebook support (optional)
+ipywidgets==8.1.5
+notebook==7.3.1
