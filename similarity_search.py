@@ -1,5 +1,6 @@
 """
 Similarity search and recommendation engine
+@Author Utkarsh Sharma
 """
 import numpy as np
 import faiss

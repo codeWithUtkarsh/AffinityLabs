@@ -24,9 +24,7 @@ python download_dataset.py
 
 **Options:**
 - **Option 1**: Full dataset from Kaggle (requires account)
-- **Option 2**: Sample dataset for quick testing (no account needed)
 
-For quick testing, choose Option 2.
 
 ### 3️⃣ Run the Application (30 seconds)
 
@@ -84,21 +82,6 @@ The app will open automatically in your browser at `http://localhost:8501`
 | Out of memory | Use smaller dataset (Option 2 in download) |
 | Slow performance | Enable GPU if available or reduce batch size |
 
-### Verify Installation
-
-Run the test script to check everything is working:
-
-```bash
-python test_installation.py
-```
-
-## 📊 Sample Dataset Info
-
-If using the sample dataset (Option 2):
-- 100 products with metadata
-- 20 sample images
-- Perfect for testing and development
-- Full functionality available
 
 ## 🎨 Features to Try
 
@@ -137,28 +120,6 @@ If using the sample dataset (Option 2):
 3. **GPU Acceleration**: If you have NVIDIA GPU, PyTorch will automatically use it
 4. **Custom Images**: For best results, use clear product images with plain backgrounds
 
-## 📝 Next Steps
-
-After getting familiar with the basic features:
-
-1. **Explore the Code**
-   - `app.py`: Main Streamlit application
-   - `similarity_search.py`: Recommendation algorithms
-   - `feature_extractor.py`: Deep learning models
-
-2. **Customize Settings**
-   - Edit `config.py` to adjust parameters
-   - Change batch size, model type, or UI settings
-
-3. **Use Jupyter Notebook**
-   - Open `fashion_assistant_notebook.py` in Jupyter
-   - Interactive exploration and experimentation
-
-## 🆘 Need Help?
-
-- Check the full README.md for detailed documentation
-- Run `python test_installation.py` to diagnose issues
-- Review error messages in the terminal
 
 ## 🎉 Ready to Go!
 

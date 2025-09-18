@@ -97,7 +97,7 @@ This Fashion Shopping Assistant is a prototype application that leverages deep l
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/fashion-shopping-assistant.git
+git clone https://github.com/codeWithUtkarsh/AffinityLabs
 cd fashion-shopping-assistant
 ```
 
@@ -133,12 +133,6 @@ python download_dataset.py
 # Choose option 1 for full dataset
 ```
 
-#### Option B: Sample Dataset (Quick Testing)
-
-```bash
-python download_dataset.py
-# Choose option 2 for sample dataset
-```
 
 ## 🎮 Quick Start
 
@@ -291,42 +285,7 @@ MMR = λ * Sim(query, item) - (1-λ) * max(Sim(item, selected))
 - [ ] Distributed processing
 - [ ] Mobile app development
 
-## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Development Setup
-
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Format code
-black .
-isort .
-
-# Lint code
-flake8 .
-```
-
-## 📈 Model Performance Metrics
-
-| Metric | Value |
-|--------|-------|
-| Feature Extraction Time | 0.5s/image |
-| Similarity Search Time | <1ms |
-| Memory Usage | ~500MB |
-| Recommendation Accuracy | 85%+ |
-| Dataset Size (subset) | 2000 items |
 
 ## 🐛 Troubleshooting
 
@@ -348,23 +307,3 @@ flake8 .
    - Install faiss-cpu: `pip install faiss-cpu`
    - For GPU: `pip install faiss-gpu`
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Dataset**: [Fashion Product Images (Small)](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-small) by Param Aggarwal
-- **Pre-trained Models**: PyTorch and torchvision contributors
-- **UI Framework**: Streamlit team
-- **Similarity Search**: Facebook AI Research (FAISS)
-
-## 📧 Contact
-
-For questions or feedback, please contact:
-- Email: your.email@example.com
-- GitHub Issues: [Create an issue](https://github.com/yourusername/fashion-shopping-assistant/issues)
-
----
-
-**Note**: This is a prototype/educational project. For production use, additional optimization, security measures, and scalability considerations would be necessary.

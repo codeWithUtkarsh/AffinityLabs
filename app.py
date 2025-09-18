@@ -17,7 +17,7 @@ from data_loader import FashionDataLoader
 from feature_extractor import FeatureExtractor
 from similarity_search import SimilaritySearch
 
-# Page configuration
+# Web Page Configuration
 st.set_page_config(
     page_title="Fashion Shopping Assistant",
     page_icon="👗",
@@ -58,18 +58,17 @@ st.markdown("""
 
 @st.cache_resource
 def load_data():
-    """Load dataset and features"""
     data_loader = FashionDataLoader(use_subset=True, subset_size=2000)
     df = data_loader.load_metadata()
 
     if df is None:
-        return None, None, None, None
+        return None, None
 
-    return data_loader, df, None, None
+    return data_loader, df
 
 @st.cache_resource
 def load_models(_data_loader):
-    """Load feature extractor and similarity search"""
+
     # Initialize feature extractor
     feature_extractor = FeatureExtractor(model_name='resnet50')
 
@@ -137,7 +136,7 @@ def main():
 
     # Load data
     with st.spinner("Loading fashion catalog..."):
-        data_loader, df, _, _ = load_data()
+        data_loader, df = load_data()
 
     if data_loader is None or df is None:
         st.error("""

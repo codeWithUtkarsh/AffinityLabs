@@ -1,5 +1,6 @@
 """
 Data loader module for Fashion Product Images dataset
+@Author Utkarsh Sharma
 """
 import os
 import pandas as pd
@@ -17,23 +18,12 @@ class FashionDataLoader:
     """
 
     def __init__(self, data_dir=None, use_subset=True, subset_size=2000):
-        """
-        Initialize data loader
-
-        Args:
-            data_dir: Path to dataset directory
-            use_subset: Whether to use a subset of the data
-            subset_size: Size of subset to use
-        """
         self.data_dir = data_dir or config.DATA_DIR
         self.use_subset = use_subset
         self.subset_size = subset_size
         self.df = None
 
     def load_metadata(self):
-        """
-        Load product metadata from CSV
-        """
         csv_path = self.data_dir / "styles.csv"
 
         if not csv_path.exists():
@@ -41,7 +31,6 @@ class FashionDataLoader:
             print("Please download the dataset first using download_dataset.py")
             return None
 
-        # Load CSV with error handling
         try:
             self.df = pd.read_csv(csv_path, on_bad_lines='skip')
 
@@ -61,18 +50,14 @@ class FashionDataLoader:
                 'productDisplayName': 'Unknown Product'
             })
 
-            # Add image paths
             self.df['image_path'] = self.df['id'].apply(
                 lambda x: str(self.data_dir / 'images' / f'{x}.jpg')
             )
 
-            # Filter to only existing images
             self.df['image_exists'] = self.df['image_path'].apply(os.path.exists)
             self.df = self.df[self.df['image_exists']].reset_index(drop=True)
 
-            # Use subset if specified
             if self.use_subset and len(self.df) > self.subset_size:
-                # Sample diverse subset
                 self.df = self._sample_diverse_subset()
 
             print(f"Loaded {len(self.df)} products")
@@ -83,10 +68,6 @@ class FashionDataLoader:
             return None
 
     def _sample_diverse_subset(self):
-        """
-        Sample a diverse subset of products
-        """
-        # Try to get balanced samples from each category
         sampled_dfs = []
 
         categories = self.df['masterCategory'].unique()
@@ -99,7 +80,6 @@ class FashionDataLoader:
 
         result_df = pd.concat(sampled_dfs, ignore_index=True)
 
-        # If we need more samples, add randomly
         if len(result_df) < self.subset_size:
             remaining = self.subset_size - len(result_df)
             additional = self.df[~self.df.index.isin(result_df.index)].sample(
@@ -111,9 +91,6 @@ class FashionDataLoader:
         return result_df.head(self.subset_size)
 
     def load_image(self, image_path, target_size=config.IMAGE_SIZE):
-        """
-        Load and preprocess a single image
-        """
         try:
             img = Image.open(image_path).convert('RGB')
             img = img.resize(target_size, Image.Resampling.LANCZOS)
@@ -123,9 +100,6 @@ class FashionDataLoader:
             return None
 
     def get_batch_images(self, indices, target_size=config.IMAGE_SIZE):
-        """
-        Load a batch of images
-        """
         images = []
         valid_indices = []
 
@@ -140,40 +114,25 @@ class FashionDataLoader:
         return images, valid_indices
 
     def get_product_info(self, idx):
-        """
-        Get product information by index
-        """
         if idx < len(self.df):
             return self.df.iloc[idx].to_dict()
         return None
 
     def filter_products(self, gender=None, category=None, color=None, season=None):
-        """
-        Filter products based on criteria
-        """
         filtered_df = self.df.copy()
-
         if gender and gender != "All":
             filtered_df = filtered_df[filtered_df['gender'] == gender]
-
         if category and category != "All":
             filtered_df = filtered_df[filtered_df['masterCategory'] == category]
-
         if color and color != "All":
             filtered_df = filtered_df[filtered_df['baseColour'] == color]
-
         if season and season != "All":
             filtered_df = filtered_df[filtered_df['season'] == season]
-
         return filtered_df
 
     def get_product_stats(self):
-        """
-        Get dataset statistics
-        """
         if self.df is None:
             return None
-
         stats = {
             'total_products': len(self.df),
             'categories': self.df['masterCategory'].value_counts().to_dict(),
@@ -182,5 +141,4 @@ class FashionDataLoader:
             'seasons': self.df['season'].value_counts().to_dict(),
             'article_types': self.df['articleType'].value_counts().head(10).to_dict()
         }
-
         return stats
