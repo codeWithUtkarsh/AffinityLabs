@@ -436,16 +436,3 @@ This methodology provides a systematic approach to building an AI-powered fashio
 
 The modular architecture and comprehensive evaluation framework ensure that the system can evolve with changing requirements and scale to meet growing demands. Future enhancements will focus on personalization, multi-modal capabilities, and advanced AI techniques to further improve the shopping experience.
 
-## References
-
-1. He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. CVPR.
-2. Johnson, J., Douze, M., & Jégou, H. (2019). Billion-scale similarity search with GPUs. IEEE Transactions on Big Data.
-3. Carbonell, J., & Goldstein, J. (1998). The use of MMR, diversity-based reranking for reordering documents and producing summaries. SIGIR.
-4. Liu, Z., Luo, P., Qiu, S., Wang, X., & Tang, X. (2016). DeepFashion: Powering Robust Clothes Recognition and Retrieval with Rich Annotations. CVPR.
-5. Vaswani, A., et al. (2017). Attention is All You Need. NeurIPS.
-
----
-
-*Document Version: 1.0*  
-*Last Updated: December 2024*  
-*Author: Fashion Shopping Assistant Development Team*
